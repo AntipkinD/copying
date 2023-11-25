@@ -18,7 +18,7 @@ internal class Program
     {
         public DateTime dt1;
         public DateTime dt2;
-        public Timer() /// Конструктор создаёт таймер вызывать так: Timer timer = new Timer();
+        public Timer() /// конструктор создаёт таймер вызывать так: Timer timer = new Timer();
         {
 
         }
@@ -52,11 +52,10 @@ internal class Program
             Thread copy2 = new(Copy2);
             Timer timer = new Timer();
             timer.Start();
-            for (int i = 0; i < 2; i++)
-            {
-                if (i == 0) copy1.Start();
-                if (i == 1) copy2.Start();
-            }
+            copy1.Start();
+            copy1.Join();
+            copy2.Start();
+            copy2.Join();
             timer.Stop();
         }
     }
